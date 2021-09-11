@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book archive</title>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+
+    
+    <header id="top">
+        <div class="search-field-container mt-3">
+            <div  class="input-group mb-3  mx-auto input-container">
+                <input id="search-field" type="text" class="form-control" placeholder="Search Your Favourite books"  >
+                <button class="btn btn-primary" type="button" id="search-field-button">Search</button>
+              </div>
+        </div>
+    </header>
+    <main>
+
+
+
+        <!-- books section -->
+
+        <section class="books-section">
+
+            <h1 id="found-books" class="found-books pb-3" >About <span id="result-found"></span>  Books Found </h1>
+            <div id="books-container" class="books-container">
+
+            </div>
+           
+
+        </section>
+
+
+       
+    </main>
+   
+
+    
+
+    <!-- spinner -->
+    <div id="spinner-conatainer" class="spinner-conatainer">
+        <div id="spinner" class="spinner"></div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- script js  -->
+    <script src="js/script.js"></script>
+
+    <!-- bootstrap js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+</body>
+</html>

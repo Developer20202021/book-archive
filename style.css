@@ -1,0 +1,150 @@
+body{
+    position: relative;
+}
+
+
+/* desctop section  */
+@media only screen and (min-width:1200px) {
+    
+    .books-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        margin-top: 50px;
+        gap: 70px;
+    
+    }
+
+}
+
+    /* tablet section  */
+
+    @media only screen and (min-width:788px) and (max-width:1199px) {
+        .books-container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            margin-top: 50px;
+            gap: 70px;
+        
+        } 
+    }
+
+
+    /* phone section  */
+
+@media only screen and (max-width:788px){
+    .books-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        
+    }
+}
+.found-books{
+    position: relative;
+}
+
+
+
+
+
+
+
+.books-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 90px;
+}
+
+.publish-time{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    padding-top: 19px;
+    font-weight: 500;
+    color: rgb(161, 142, 29);
+}
+
+.year{
+    font-size: 18px;
+    font-weight: 600;
+    color: gray;
+}
+
+div img{
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+}
+
+.publisher-name{
+    font-size: 18px;
+    font-weight: 500;
+    color: gray;
+}
+.publisher{
+    font-size: 17px;
+    font-weight: 700;
+    color: rgb(58, 66, 58);
+}
+.card-text{
+    font-size: 18px;
+    font-weight: 700;
+}
+.by{
+    font-size: 15px;
+    color: grey;
+}
+
+.found-books{
+    display: none;
+}
+
+.input-container{
+    width: 75%!important;
+}
+
+    /* create a new spinner  */
+
+.spinner{
+    display: none;
+    border-bottom: 5px solid white;
+    border-top: 5px solid #0B5ED7;
+    border-left: 5px solid #0B5ED7;
+    border-right: 5px solid #0B5ED7;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 99;
+    position: absolute;
+    top: 350px;
+    left: 45%;
+    animation: spinner 1s linear infinite ;
+}
+@keyframes spinner {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+.spinner-conatainer{
+    width:30px;
+    
+}
+
+
+.author-name{
+    padding-top: 20px;
+}
+
+h5{
+    font-weight: 900!important;
+}
