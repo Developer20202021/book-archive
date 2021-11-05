@@ -7,14 +7,14 @@
         
     // spinner add for  default data loading time
 
-        const spinner = document.getElementById('spinner');
-        spinner.style.display = 'block';
+        // const spinner = document.getElementById('spinner');
+        // spinner.style.display = 'block';
 
         //  for screen  default  data  javascript books data load
-        const url = `https://openlibrary.org/search.json?q=javascript`;
-        fetch(url)
-        .then(res => res.json())
-        .then(data => getBooks(data))
+        // const url = `https://openlibrary.org/search.json?q=javascript`;
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => getBooks(data))
 
     // search button
     const searchButton = document.getElementById('search-field-button');
@@ -48,15 +48,17 @@ const getBooks = (data) =>{
 
     // how many books found and check, if the book number is zero
 
-    if (data.numFound === 0) {
-        foundBooks.innerText = `No Result Found`;
+    if (parseInt(data.numFound)) {
+       
         foundBooks.style.display = 'block';
+        const searchResultNum = document.getElementById('found-books');
+        console.log(data.numFound)
+        searchResultNum.innerText = parseInt(data?.numFound);
     }
          
     else{
+        foundBooks.innerText = `No Result Found`;
         foundBooks.style.display = 'block';
-        const searchResultNum = document.getElementById('result-found');
-        searchResultNum.innerText = data.numFound;
     }
     
     
@@ -69,7 +71,7 @@ const getBooks = (data) =>{
  
     // get ony by one element from an array 
 
-    data.docs.forEach(element => {
+    data?.docs?.forEach(element => {
 
 
 
@@ -77,61 +79,55 @@ const getBooks = (data) =>{
         //    if image not available or iamge is undefined
 
         let url;
-        if (element.cover_i === undefined) {
+        if (element?.cover_i) {
              // get image 
-         url = `https://covers.openlibrary.org/b/id/10909258-M.jpg`;
+             url = `https://covers.openlibrary.org/b/id/${element?.cover_i}-L.jpg`;
    
         }
-        else{
-        // get image 
-         url = `https://covers.openlibrary.org/b/id/${element.cover_i}-M.jpg`;
-        
-        }
+       
              
    
-         if (element.first_publish_year === undefined) {
-            element.first_publish_year ='';
-         }
 
    
         // subject  undefined checked
 
 
-         let subject;
+        //  let subject;
 
-         if (element.subject === undefined) {
-            subject = '';
-         }
-         else{
-            subject = element.subject[0] ;
-         }
+        //  if (element?.title) {
+        
+        //     subject = element.title[0] ;
+        //  }
+        //  else{
+        //     subject = '';
+        //  }
 
 
 
         //  author name undefined checked
 
 
-         let authorName;
-         if (element.author_name === undefined) {
+        //  let authorName;
+        //  if (element?.author_name === undefined) {
 
-            authorName = '';
+        //     authorName = '';
     
-         }
-         else{
-             authorName = element.author_name[0];
-         }
+        //  }
+        //  else{
+        //      authorName = element.author_name[0];
+        //  }
 
 
 
         //  publisher name  undefined checked
 
-         let publisherName;
-         if (element.publisher === undefined) {
-           publisherName = '';
-         }
-         else{
-             publisherName = element.publisher[0];
-         }
+        //  let publisherName;
+        //  if (element?.publisher === undefined) {
+        //    publisherName = '';
+        //  }
+        //  else{
+        //      publisherName = element?.publisher[0];
+        //  }
 
 
 
@@ -145,10 +141,10 @@ const getBooks = (data) =>{
     bookDiv.setAttribute('style', 'width: 18rem;');
     bookDiv.innerHTML = `  <img  src=${url} class="card-img-top" alt="...">
     <div class="card-body">
-    <h5 class='card-title'>${subject}</h5>
-      <p class="card-text author-name"> <span class='by'>by</span> ${authorName}  </p>
-      <div class='publish-detail'><p class='publisher'><span class ='publisher-name'>Publisher : </span>${publisherName}</p>
-      <p class='publish-time'><span class='year'>First Publish : </span>${ element.first_publish_year}</p>
+    <h5 class='card-title'> Book Name: ${element?.title?element.title:' '}</h5>
+      <p class="card-text author-name"> <span class='by'>Author Name:</span> ${element?.author_name?.map(author=>author)}  </p>
+      <div class='publish-detail'><p class='publisher'><span class ='publisher-name'>Publisher Name : </span>${element?.publisher?.map(publisher=>publisher)}</p>
+      <p class='publish-time'><span class='year'>First Publish : </span>${ element?.first_publish_year?element.first_publish_year : ' '}</p>
      </div>
     </div>`;
     booksConatainer.appendChild(bookDiv);
